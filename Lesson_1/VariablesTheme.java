@@ -113,16 +113,16 @@ public class VariablesTheme {
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         int N = 123;
-        int X, Y, Z;
-        X = N / 100;
-        Y = (N - X * 100) / 10;
-        Z = N % 10;
+        int countHundred, countTen, countUnit;
+        countHundred = N / 100;
+        countTen = (N - countHundred * 100) / 10;
+        countUnit = N % 10;
         System.out.println("\tЧисло " + N + " содержит");
-        System.out.println("\t\t" + X + " сотен");
-        System.out.println("\t\t" + Y + " десятков");
-        System.out.println("\t\t" + Z + " единиц");
-        System.out.println("\tСумма его цифр = " + (X + Y + Z));
-        System.out.println("\tПроизведение его цифр = " + (X * Y * Z));
+        System.out.println("\t\t" + countHundred + " сотен");
+        System.out.println("\t\t" + countTen + " десятков");
+        System.out.println("\t\t" + countUnit + " единиц");
+        System.out.println("\tСумма его цифр = " + (countHundred + countTen + countUnit));
+        System.out.println("\tПроизведение его цифр = " + (countHundred * countTen * countUnit));
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n9. Вывод времени");
         int time = 86399;
