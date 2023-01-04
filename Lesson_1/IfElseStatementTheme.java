@@ -33,7 +33,6 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("\tПервая буква не M и не I");
         }
-
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n2. Поиск max и min числа");
         int iVal1 = 12;
@@ -45,7 +44,6 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("\tЧисла одинаковые и равны " + iVal1);
         }
-
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n3. Проверка числа");
         int iVal = 0;
@@ -62,7 +60,6 @@ public class IfElseStatementTheme {
                 System.out.println("\tЧисло положительное");
             }
         }
-
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n4. Поиск одинаковых цифр в числах");
         int iNum1 = 123;
@@ -92,7 +89,6 @@ public class IfElseStatementTheme {
         if (countEquals == 0) {
             System.out.println("\tВ числах нет одинаковых цифр");
         }
-
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n5. Определение символа по его коду");
         char ch = '\u0057';
@@ -106,7 +102,6 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("\tне буква и не число");
         }
-
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         float summa = 300000.00f;
@@ -122,7 +117,6 @@ public class IfElseStatementTheme {
         System.out.println("\tСумма вклада = " + summa);
         System.out.println("\tНачисленный % = " + summaProc);
         System.out.println("\tИтоговая сумма % = " + (summa + summaProc));
-
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n7. Определение оценки по предметам");
         int ocHistory = 59;
@@ -137,7 +131,6 @@ public class IfElseStatementTheme {
         float srednBal = (((float) ocHistory) +
                 ((float) ocProg)) / 2.0f;
         System.out.println("\tСредний балл: " + srednBal);
-
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n8. Расчет прибыли за год");
         int arenda = 5000;
@@ -153,7 +146,6 @@ public class IfElseStatementTheme {
             chPrefix = '+';
         }
         System.out.println("\tприбыль за год: " + chPrefix + dohod + " руб");
-
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n9. Подсчет количества банкнот");
         int iSumma = 567;
