@@ -1,3 +1,4 @@
 # Исключить файлы .class
 *.class
 run.bat
+help.txt
