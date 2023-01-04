@@ -100,16 +100,16 @@ public class VariablesTheme {
         System.out.println("\t" + (int) chUnderline + " => " + chUnderline);
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n7. Вывод в консоль ASCII-арт Дюка");
-        char chLeft = '/';
-        char chRight = '\\';
+        char chSlash = '/';
+        char chBackslash = '\\';
         char chBracket1 = '(';
         char chBracket2 = ')';
-        System.out.println("\t    " + chLeft + chRight);
-        System.out.println("\t   " + chLeft + "  " + chRight);
-        System.out.println("\t  " + chLeft + chUnderline + chBracket1 + " " + chBracket2 + chRight);
-        System.out.println("\t " + chLeft + "      " + chRight);
-        System.out.println("\t" + chLeft + chUnderline + chUnderline + chUnderline + chUnderline + chLeft
-                + chRight + chUnderline + chUnderline + chRight);
+        System.out.println("\t    " + chSlash + chBackslash);
+        System.out.println("\t   " + chSlash + "  " + chBackslash);
+        System.out.println("\t  " + chSlash + chUnderline + chBracket1 + " " + chBracket2 + chBackslash);
+        System.out.println("\t " + chSlash + "      " + chBackslash);
+        System.out.println("\t" + chSlash + chUnderline + chUnderline + chUnderline + chUnderline + chSlash
+                + chBackslash + chUnderline + chUnderline + chBackslash);
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         int N = 123;
