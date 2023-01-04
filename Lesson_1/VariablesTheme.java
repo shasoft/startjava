@@ -88,29 +88,28 @@ public class VariablesTheme {
         System.out.println("\t\tКонечные значения: " + a + ", " + b);
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n6. Вывод символов и их кодов");
-        char ch1 = '#'; // 35
-        System.out.println("\t" + (int) ch1 + " => " + ch1);
-        char ch2 = '&'; // 38
-        System.out.println("\t" + (int) ch2 + " => " + ch2);
-        char ch3 = '@'; // 64
-        System.out.println("\t" + (int) ch3 + " => " + ch3);
-        char ch4 = '^'; // 94
-        System.out.println("\t" + (int) ch4 + " => " + ch4);
-        char ch5 = '_'; // 95
-        System.out.println("\t" + (int) ch5 + " => " + ch5);
+        char chLattice = '#'; // 35
+        System.out.println("\t" + (int) chLattice + " => " + chLattice);
+        char chAnd = '&'; // 38
+        System.out.println("\t" + (int) chAnd + " => " + chAnd);
+        char chDog = '@'; // 64
+        System.out.println("\t" + (int) chDog + " => " + chDog);
+        char chXor = '^'; // 94
+        System.out.println("\t" + (int) chXor + " => " + chXor);
+        char chUnderline = '_'; // 95
+        System.out.println("\t" + (int) chUnderline + " => " + chUnderline);
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n7. Вывод в консоль ASCII-арт Дюка");
         char chLeft = '/';
         char chRight = '\\';
-        char chUnderlining = '_';
         char chBracket1 = '(';
         char chBracket2 = ')';
         System.out.println("\t    " + chLeft + chRight);
         System.out.println("\t   " + chLeft + "  " + chRight);
-        System.out.println("\t  " + chLeft + chUnderlining + chBracket1 + " " + chBracket2 + chRight);
+        System.out.println("\t  " + chLeft + chUnderline + chBracket1 + " " + chBracket2 + chRight);
         System.out.println("\t " + chLeft + "      " + chRight);
-        System.out.println("\t" + chLeft + chUnderlining + chUnderlining + chUnderlining + chUnderlining + chLeft
-                + chRight + chUnderlining + chUnderlining + chRight);
+        System.out.println("\t" + chLeft + chUnderline + chUnderline + chUnderline + chUnderline + chLeft
+                + chRight + chUnderline + chUnderline + chRight);
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         int N = 123;
