@@ -12,12 +12,12 @@ public class VariablesTheme {
         System.out.println("\tКоличество ядер: " + countCore);
         long weightComputer = 11234;
         System.out.println("\tВес компьютера, грамм: " + weightComputer);
-        char varChar = 'Я';
-        System.out.println("\tПоследний символ русского алфавита: " + varChar);
-        float varFloat = 0.02f;
-        System.out.println("\tВероятность поломки компьютера: " + varFloat);
-        double varDouble = 77.665544;
-        System.out.println("\tПроцент занятой памяти: " + varDouble);
+        char lastCharRussianAlphabet = 'Я';
+        System.out.println("\tПоследний символ русского алфавита на клавиатуре: " + lastCharRussianAlphabet);
+        float probabilityOfBreakage = 0.02f;
+        System.out.println("\tВероятность поломки компьютера: " + probabilityOfBreakage);
+        double usedMemory = 77.665544;
+        System.out.println("\tПроцент занятой памяти: " + usedMemory);
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n2. Расчет стоимости товара со скидкой");
         float pricePen = 100.0f;
