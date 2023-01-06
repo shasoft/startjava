@@ -12,19 +12,16 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("\tВозраст меньше-равно 20");
         }
-
         if (!hasMale) {
             System.out.println("\tпол: женщина");
         } else {
             System.out.println("\tпол: мужчина");
         }
-
         if (growth < 1.80) {
             System.out.println("\tРост меньше 1.80");
         } else {
             System.out.println("\tРост больше-равен 1.80");
         }
-
         char firstChar = name.charAt(0);
         if (firstChar == 'M') {
             System.out.println("\tПервая буква M");
