@@ -1,4 +1,5 @@
 # Исключить файлы .class
 *.class
+# Исключить другие файлы
 run.bat
-help.txt
+gitpush.bat

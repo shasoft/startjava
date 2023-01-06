@@ -91,23 +91,22 @@ public class VariablesTheme {
         System.out.println("\t" + (int) lowLine + " => " + lowLine);
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n7. Вывод в консоль ASCII-арт Дюка");
-        char solidus = '/';
-        char reverseSolidus = '\\';
+        char slash = '/';
+        char backslash = '\\';
         char leftParenthesis = '(';
         char rightParenthesis = ')';
-        System.out.println("\t    " + solidus + reverseSolidus);
-        System.out.println("\t   " + solidus + "  " + reverseSolidus);
-        System.out.println("\t  " + solidus + lowLine + leftParenthesis + " " + rightParenthesis + reverseSolidus);
-        System.out.println("\t " + solidus + "      " + reverseSolidus);
-        System.out.println("\t" + solidus + lowLine + lowLine + lowLine + lowLine + solidus
-                + reverseSolidus + lowLine + lowLine + reverseSolidus);
+        System.out.println("\t    " + slash + backslash);
+        System.out.println("\t   " + slash + "  " + backslash);
+        System.out.println("\t  " + slash + lowLine + leftParenthesis + " " + rightParenthesis + backslash);
+        System.out.println("\t " + slash + "      " + backslash);
+        System.out.println("\t" + slash + lowLine + lowLine + lowLine + lowLine + slash
+                + backslash + lowLine + lowLine + backslash);
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         int srcNum = 123;
-        int hundreds, tens, ones;
-        hundreds = srcNum / 100;
-        tens = (srcNum - hundreds * 100) / 10;
-        ones = srcNum % 10;
+        int hundreds = srcNum / 100;
+        int tens = (srcNum % 100) / 10;
+        int ones = srcNum % 10;
         System.out.println("\tЧисло " + srcNum + " содержит");
         System.out.println("\t\t" + hundreds + " сотен");
         System.out.println("\t\t" + tens + " десятков");
