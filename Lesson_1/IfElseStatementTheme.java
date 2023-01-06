@@ -3,8 +3,8 @@ public class IfElseStatementTheme {
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n1. Перевод псевдокода на язык Java");
         int age = 21;
-        boolean hasMale = true;
-        float growth = 1.85f;
+        boolean maleGender = true;
+        float heightMan = 1.85f;
         String name = "Валера";
         //
         if (age > 20) {
@@ -12,46 +12,48 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("\tВозраст меньше-равно 20");
         }
-        if (!hasMale) {
+        if (!maleGender) {
             System.out.println("\tпол: женщина");
         } else {
             System.out.println("\tпол: мужчина");
         }
-        if (growth < 1.80) {
+        if (heightMan < 1.80) {
             System.out.println("\tРост меньше 1.80");
         } else {
             System.out.println("\tРост больше-равен 1.80");
         }
-        char firstChar = name.charAt(0);
-        if (firstChar == 'M') {
+        char capitalLetter = name.charAt(0);
+        if (capitalLetter == 'M') {
             System.out.println("\tПервая буква M");
-        } else if (firstChar == 'I') {
+        } else if (capitalLetter == 'I') {
             System.out.println("\tПервая буква I");
         } else {
             System.out.println("\tПервая буква не M и не I");
         }
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n2. Поиск max и min числа");
-        int intVar1 = 12;
-        int intVar2 = 17;
-        if (intVar1 < intVar2) {
-            System.out.println("\tМинимальное число=" + intVar1 + ", максимальное число=" + intVar2);
-        } else if (intVar2 < intVar1) {
-            System.out.println("\tМинимальное число=" + intVar2 + ", максимальное число=" + intVar1);
+        int intNumber1 = 12;
+        int intNumber2 = 17;
+        if (intNumber1 < intNumber2) {
+            System.out.println("\tМинимальное число=" + intNumber1 + ", максимальное число=" + intNumber2);
+        } else if (intNumber2 < intNumber1) {
+            System.out.println("\tМинимальное число=" + intNumber2 + ", максимальное число=" + intNumber1);
         } else {
-            System.out.println("\tЧисла одинаковые и равны " + intVar1);
+            System.out.println("\tЧисла одинаковые и равны " + intNumber1);
         }
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n3. Проверка числа");
-        int intVar = 0;
-        System.out.println("\tЧисло = " + intVar);
-        if (intVar != 0) {
-            if (intVar % 2 == 0) {
+        int intNumber = 0;
+        System.out.println("\tЧисло = " + intNumber);
+        if (intNumber == 0) {
+            System.out.println("\tЧисло равно нулю");
+        } else {
+            if (intNumber % 2 == 0) {
                 System.out.println("\tЧисло четное");
             } else {
                 System.out.println("\tЧисло нечетное");
             }
-            if (intVar < 0) {
+            if (intNumber < 0) {
                 System.out.println("\tЧисло отрицательное");
             } else {
                 System.out.println("\tЧисло положительное");
@@ -102,13 +104,11 @@ public class IfElseStatementTheme {
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         float sum = 300000.00f;
-        float percent;
+        float percent = 10.0f;
         if (sum < 100000.00f) {
             percent = 5.0f;
         } else if (sum < 300000.00f) {
             percent = 7.0f;
-        } else {
-            percent = 10.0f;
         }
         float sumPercent = sum * percent / 100.0f;
         System.out.println("\tСумма вклада = " + sum);
@@ -118,11 +118,11 @@ public class IfElseStatementTheme {
         System.out.println("\n7. Определение оценки по предметам");
         int percentHistory = 59;
         int percentProgramming = 91;
-        System.out.println("\t" + IfElseStatementTheme.rating(percentHistory) + " история");
-        System.out.println("\t" + IfElseStatementTheme.rating(percentProgramming) + " программирование");
+        System.out.println("\t" + getRating(percentHistory) + " история");
+        System.out.println("\t" + getRating(percentProgramming) + " программирование");
         //
-        float average = (((float) IfElseStatementTheme.rating(percentHistory)) +
-                ((float) IfElseStatementTheme.rating(percentProgramming))) / 2.0f;
+        float average = (((float) getRating(percentHistory)) +
+                ((float) getRating(percentProgramming))) / 2.0f;
         System.out.println("\tСредняя оценка: " + average);
         //
         float averagePercent = (((float) percentHistory) +
@@ -135,14 +135,11 @@ public class IfElseStatementTheme {
         int sale = 13000;
         // Доход за год
         int income = (sale - cost - rent) * 12;
-        char sign;
         if (income < 0) {
-            income = -income;
-            sign = '-';
+            System.out.println("\tприбыль за год: " + income + " руб");
         } else {
-            sign = '+';
+            System.out.println("\tприбыль за год: +" + income + " руб");
         }
-        System.out.println("\tприбыль за год: " + sign + income + " руб");
         /////////////////////////////////////////////////////////////////////////////////////
         System.out.println("\n9. Подсчет количества банкнот");
         int intSum = 567;
@@ -175,16 +172,14 @@ public class IfElseStatementTheme {
     }
 
     // Определить оценку по успеваемости
-    public static int rating(int percent) {
-        int ret;
+    public static int getRating(int percent) {
+        int ret = 5;
         if (percent < 60) {
             ret = 2;
         } else if (percent < 73) {
             ret = 3;
         } else if (percent < 91) {
             ret = 4;
-        } else {
-            ret = 5;
         }
         return ret;
     }
