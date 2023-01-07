@@ -1,29 +1,27 @@
-import java.util.Arrays;
-
 public class CyclesTheme {
     public static void main(String[] args) {
-
-        System.out.println("\n1. Перевод псевдокода на язык Java");
-        int a = -10;
-        int b = 21;
-        int i = a;
-        int even = 0; // Четные числа
-        int odd = 0; // Нечетные числа
+        System.out.println("\n1. Подсчет суммы четных и нечетных чисел");
+        int startRange = -10;
+        int endRange = 21;
+        int even = 0;
+        int odd = 0;
+        int i = startRange;
         do {
-            if ((i % 2) == 0) {
-                even++;
+            if (i % 2 == 0) {
+                even += i;
             } else {
-                odd++;
+                odd += i;
             }
             // Увеличить число
             i++;
-        } while (i <= b);
+        } while (i <= endRange);
         System.out.println(
-                "\tв промежутке [" + a + ", " + b + "] сумма четных чисел = " + even + ", а нечетных = " + odd);
+                "\tв промежутке [" + startRange + ", " + endRange + "] сумма четных чисел = " + even + ", а нечетных = "
+                        + odd);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
-        a = 10;
-        b = 5;
+        int a = 10;
+        int b = 5;
         int c = -1;
         // Определяем минимальное число
         int min = a;
@@ -42,21 +40,23 @@ public class CyclesTheme {
             max = c;
         }
         System.out.println("\t Минимальное = " + min + ", Максимальное = " + max);
-        System.out.print("\tВсе числа интервала в порядке убывания:");
-        for (i = max; i >= min; i--) {
+        System.out.print("\tВсе числа интервала (" + min + "," + max + ") в порядке убывания:");
+        for (i = max - 1; i > min; i--) {
             System.out.print(" " + i);
         }
+        System.out.print("\n");
 
         System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
         int number = 1234;
-        int sumNumbers = 0;
+        int sumDigits = 0;
         System.out.print("\tВ обратном порядке: ");
         while (number > 0) {
-            System.out.print(number % 10);
-            sumNumbers += (number % 10);
+            int digit = number % 10;
+            System.out.print(digit);
+            sumDigits += digit;
             number /= 10;
         }
-        System.out.println("\n\tСумма цифр: " + sumNumbers);
+        System.out.println("\n\tСумма цифр: " + sumDigits);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         System.out.print("\t");
@@ -76,18 +76,17 @@ public class CyclesTheme {
 
         System.out.println("\n\n5. Проверка количества двоек на четность/нечетность");
         number = 3242592;
-        int two = 0;
-        i = number;
-        while (i > 0) {
-            int digit = i % 10;
+        int countDigit2 = 0;
+        int copyNumber = number;
+        while (copyNumber > 0) {
+            int digit = copyNumber % 10;
             if (digit == 2) {
-                two++;
+                countDigit2++;
             }
-            i /= 10;
+            copyNumber /= 10;
         }
         System.out.println("\tчисло " + number + " содержит " +
-                two +
-                " (" + ((two % 2) == 0 ? "четное" : "нечетное") + ") количество двоек");
+                countDigit2 + " (" + ((countDigit2 % 2) == 0 ? "четное" : "нечетное") + ") количество двоек");
 
         System.out.println("\n6. Отображение фигур в консоли");
         // Прямоугольник
