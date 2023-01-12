@@ -3,21 +3,21 @@ public class CyclesTheme {
         System.out.println("\n1. Подсчет суммы четных и нечетных чисел");
         int startRange = -10;
         int endRange = 21;
-        int even = 0;
-        int odd = 0;
-        int i = startRange;
+        int evenSum = 0;
+        int oddSum = 0;
+        int number = startRange;
         do {
-            if (i % 2 == 0) {
-                even += i;
+            if (number % 2 == 0) {
+                evenSum += number;
             } else {
-                odd += i;
+                oddSum += number;
             }
             // Увеличить число
-            i++;
-        } while (i <= endRange);
+            number++;
+        } while (number <= endRange);
         System.out.println(
-                "\tв промежутке [" + startRange + ", " + endRange + "] сумма четных чисел = " + even + ", а нечетных = "
-                        + odd);
+                "\tв промежутке [" + startRange + ", " + endRange + "] сумма четных чисел = " + evenSum
+                        + ", а нечетных = " + oddSum);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int a = 10;
@@ -41,13 +41,13 @@ public class CyclesTheme {
         }
         System.out.println("\t Минимальное = " + min + ", Максимальное = " + max);
         System.out.print("\tВсе числа интервала (" + min + "," + max + ") в порядке убывания:");
-        for (i = max - 1; i > min; i--) {
+        for (int i = max - 1; i > min; i--) {
             System.out.print(" " + i);
         }
-        System.out.print("\n");
+        System.out.println();
 
         System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
-        int number = 1234;
+        number = 1234;
         int sumDigits = 0;
         System.out.print("\tВ обратном порядке: ");
         while (number > 0) {
@@ -61,7 +61,7 @@ public class CyclesTheme {
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         System.out.print("\t");
         int countNumbersInRow = 0;
-        for (i = 1; i < 24; i += 2) {
+        for (int i = 1; i < 24; i += 2) {
             System.out.printf(" %2d", i);
             countNumbersInRow++;
             if (countNumbersInRow == 5) {
@@ -76,21 +76,21 @@ public class CyclesTheme {
 
         System.out.println("\n\n5. Проверка количества двоек на четность/нечетность");
         number = 3242592;
-        int countDigit2 = 0;
+        int countTwos = 0;
         int copyNumber = number;
         while (copyNumber > 0) {
             int digit = copyNumber % 10;
             if (digit == 2) {
-                countDigit2++;
+                countTwos++;
             }
             copyNumber /= 10;
         }
         System.out.println("\tчисло " + number + " содержит " +
-                countDigit2 + " (" + ((countDigit2 % 2) == 0 ? "четное" : "нечетное") + ") количество двоек");
+                countTwos + " (" + ((countTwos % 2) == 0 ? "четное" : "нечетное") + ") количество двоек");
 
         System.out.println("\n6. Отображение фигур в консоли");
         // Прямоугольник
-        for (i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 System.out.print("*");
             }
@@ -98,55 +98,74 @@ public class CyclesTheme {
         }
         System.out.println();
         // Треугольник
-        i = 5;
-        while (i >= 0) {
-            int j = i;
+        int counter = 5;
+        while (counter >= 0) {
+            int j = counter;
             while (j >= 0) {
                 System.out.print("#");
                 j--;
             }
-            i--;
+            counter--;
             System.out.println();
         }
         System.out.println();
         // Треугольник 2
-        i = 5;
+        counter = 5;
         do {
-            int j = (i <= 3) ? i : (6 - i);
+            int j = (counter <= 3) ? counter : (6 - counter);
             do {
                 System.out.print("$");
                 j--;
             } while (j > 0);
             System.out.println();
-            i--;
-        } while (i > 0);
+            counter--;
+        } while (counter > 0);
 
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.println("\tDec  Hex");
         for (char ch = 1; ch < '0'; ch += 2) {
-            System.out.printf("\t %2d   %c\n", (int) ch, ch);
+            System.out.printf("\t%3d%4c\n", (int) ch, ch);
         }
         for (char ch = 'a'; ch <= 'z'; ch++) {
             if (ch % 2 == 0) {
-                System.out.printf("\t%3d   %c\n", (int) ch, ch);
+                System.out.printf("\t%3d%4c\n", (int) ch, ch);
             }
         }
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
         number = 1234321;
         // Получить число в обратном порядке
-        int numberReverse = reverseInt(number);
+        int numberReverse = 0;
+        int numberTmp = number;
+        while (numberTmp > 0) {
+            int digit = numberTmp % 10;
+            numberReverse = numberReverse * 10 + digit;
+            numberTmp /= 10;
+        }
+
         if (number == numberReverse) {
             System.out.println("\tчисло " + number + " является палиндромом");
         }
 
         System.out.println("\n9. Определение, является ли число счастливым");
         number = 123402;
-        int sumDigitsRight = sumDigits(number);
-        System.out.println("\tСумма цифр " + (number % 1000) + " = " + sumDigitsRight);
-        number = number / 1000;
-        int sumDigitsLeft = sumDigits(number);
-        System.out.println("\tСумма цифр " + (number % 1000) + " = " + sumDigitsLeft);
+        String digitsRight = "";
+        int sumDigitsRight = 0;
+        String digitsLeft = "";
+        int sumDigitsLeft = 0;
+        for (int i = 0; i < 6; i++) {
+            int digit = number % 10;
+            if (i < 3) {
+                sumDigitsRight += digit;
+                digitsRight = Integer.toString(digit) + digitsRight;
+            } else {
+                sumDigitsLeft += digit;
+                digitsLeft = Integer.toString(digit) + digitsLeft;
+            }
+            number /= 10;
+        }
+        System.out.println("\tСумма цифр " + digitsRight + " = " + sumDigitsRight);
+        System.out.println("\tСумма цифр " + digitsLeft + " = " + sumDigitsLeft);
         if (sumDigitsRight == sumDigitsLeft) {
             System.out.println("\tЧисло является счастливым");
         } else {
@@ -157,7 +176,7 @@ public class CyclesTheme {
         System.out.println("    ТАБЛИЦА УМНОЖЕНИЯ");
         System.out.println("   \u2502  2   3   4   5   6   7   8   9");
         System.out.print("\u2500\u2500\u2500\u253C");
-        for (i = 0; i < 31; i++) {
+        for (int i = 0; i < 31; i++) {
             System.out.print("\u2500");
         }
         for (a = 2; a <= 9; a++) {
@@ -166,18 +185,6 @@ public class CyclesTheme {
                 System.out.printf("%3d ", a * b);
             }
         }
-    }
-
-    // Получить число в обратном порядке
-    public static int reverseInt(int value) {
-        int ret = 0;
-        int mod;
-        while (value > 0) {
-            mod = value % 10;
-            ret = ret * 10 + mod;
-            value /= 10;
-        }
-        return ret;
     }
 
     // Сумма трех младших цифр
