@@ -89,6 +89,7 @@ public class CyclesTheme {
                 countTwos + " (" + ((countTwos % 2) == 0 ? "четное" : "нечетное") + ") количество двоек");
 
         System.out.println("\n6. Отображение фигур в консоли");
+
         // Прямоугольник
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
@@ -97,29 +98,31 @@ public class CyclesTheme {
             System.out.println();
         }
         System.out.println();
+
         // Треугольник
-        int counter = 5;
-        while (counter >= 0) {
-            int j = counter;
-            while (j >= 0) {
+        int row = 5;
+        while (row >= 0) {
+            int col = row;
+            while (col >= 0) {
                 System.out.print("#");
-                j--;
+                col--;
             }
-            counter--;
+            row--;
             System.out.println();
         }
         System.out.println();
+
         // Треугольник 2
-        counter = 5;
+        row = 5;
         do {
-            int j = (counter <= 3) ? counter : (6 - counter);
+            int col = (row <= 3) ? row : (6 - row);
             do {
                 System.out.print("$");
-                j--;
-            } while (j > 0);
+                col--;
+            } while (col > 0);
             System.out.println();
-            counter--;
-        } while (counter > 0);
+            row--;
+        } while (row > 0);
 
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.println("\tDec  Hex");
