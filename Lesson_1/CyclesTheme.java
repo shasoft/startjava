@@ -44,9 +44,8 @@ public class CyclesTheme {
         for (int i = max - 1; i > min; i--) {
             System.out.print(" " + i);
         }
-        System.out.println();
 
-        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
+        System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         number = 1234;
         int sumDigits = 0;
         System.out.print("\tВ обратном порядке: ");
@@ -138,34 +137,39 @@ public class CyclesTheme {
         System.out.println("\n8. Проверка, является ли число палиндромом");
         number = 1234321;
         // Получить число в обратном порядке
-        int numberReverse = 0;
-        int numberTmp = number;
-        while (numberTmp > 0) {
-            int digit = numberTmp % 10;
-            numberReverse = numberReverse * 10 + digit;
-            numberTmp /= 10;
+        int reverseNumber = 0;
+        copyNumber = number;
+        while (copyNumber > 0) {
+            int digit = copyNumber % 10;
+            reverseNumber = reverseNumber * 10 + digit;
+            copyNumber /= 10;
         }
 
-        if (number == numberReverse) {
+        if (number == reverseNumber) {
             System.out.println("\tчисло " + number + " является палиндромом");
         }
 
         System.out.println("\n9. Определение, является ли число счастливым");
-        number = 123402;
-        String digitsRight = "";
+        number = 402123;
+        int digitsRight = 0;
         int sumDigitsRight = 0;
-        String digitsLeft = "";
+        int digitsLeft = 0;
         int sumDigitsLeft = 0;
+        int mul = 1;
         for (int i = 0; i < 6; i++) {
             int digit = number % 10;
             if (i < 3) {
                 sumDigitsRight += digit;
-                digitsRight = Integer.toString(digit) + digitsRight;
+                digitsRight = digit * mul + digitsRight;
             } else {
+                if (i == 3) {
+                    mul = 1;
+                }
                 sumDigitsLeft += digit;
-                digitsLeft = Integer.toString(digit) + digitsLeft;
+                digitsLeft = digit * mul + digitsLeft;
             }
             number /= 10;
+            mul *= 10;
         }
         System.out.println("\tСумма цифр " + digitsRight + " = " + sumDigitsRight);
         System.out.println("\tСумма цифр " + digitsLeft + " = " + sumDigitsLeft);
@@ -177,28 +181,13 @@ public class CyclesTheme {
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.println("    ТАБЛИЦА УМНОЖЕНИЯ");
-        System.out.println("   \u2502  2   3   4   5   6   7   8   9");
-        System.out.print("\u2500\u2500\u2500\u253C");
-        for (int i = 0; i < 31; i++) {
-            System.out.print("\u2500");
-        }
+        System.out.println("   │  2   3   4   5   6   7   8   9");
+        System.out.print("───┼───────────────────────────────");
         for (a = 2; a <= 9; a++) {
-            System.out.print("\n " + a + " \u2502");
+            System.out.print("\n " + a + " │");
             for (b = 2; b <= 9; b++) {
                 System.out.printf("%3d ", a * b);
             }
         }
-    }
-
-    // Сумма трех младших цифр
-    public static int sumDigits(int value) {
-        int ret = 0;
-        int mod;
-        for (int i = 0; i < 3; i++) {
-            mod = value % 10;
-            ret += mod;
-            value /= 10;
-        }
-        return ret;
     }
 }
