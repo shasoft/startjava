@@ -3,21 +3,21 @@ public class CyclesTheme {
         System.out.println("\n1. Подсчет суммы четных и нечетных чисел");
         int startRange = -10;
         int endRange = 21;
-        int evenSum = 0;
-        int oddSum = 0;
+        int sumEven = 0;
+        int sumOdd = 0;
         int number = startRange;
         do {
             if (number % 2 == 0) {
-                evenSum += number;
+                sumEven += number;
             } else {
-                oddSum += number;
+                sumOdd += number;
             }
             // Увеличить число
             number++;
         } while (number <= endRange);
         System.out.println(
-                "\tв промежутке [" + startRange + ", " + endRange + "] сумма четных чисел = " + evenSum
-                        + ", а нечетных = " + oddSum);
+                "\tв промежутке [" + startRange + ", " + endRange + "] сумма четных чисел = " + sumEven
+                        + ", а нечетных = " + sumOdd);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int a = 10;
