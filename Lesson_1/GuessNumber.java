@@ -1,15 +1,15 @@
 public class GuessNumber {
     public static void main(String[] args) {
-        int numberComputer = 10;
-        int numberHuman = 50;
+        int secretNum = 10;
+        int playerNumber = 50;
 
-        while (numberHuman != numberComputer) {
-            if (numberHuman > numberComputer) {
-                System.out.println("Число " + numberHuman + " больше того, что загадал компьютер");
-                numberHuman--;
+        while (playerNumber != secretNum) {
+            if (playerNumber > secretNum) {
+                System.out.println("Число " + playerNumber + " больше того, что загадал компьютер");
+                playerNumber--;
             } else {
-                System.out.println("Число " + numberHuman + " меньше того, что загадал компьютер");
-                numberHuman++;
+                System.out.println("Число " + playerNumber + " меньше того, что загадал компьютер");
+                playerNumber++;
             }
         }
 
