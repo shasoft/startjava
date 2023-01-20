@@ -1,51 +1,50 @@
 public class Calculator {
-    private int number1 = 0;
-    private char operation = '*';
-    private int number2 = 0;
+    private int number1;
+    private char operation;
+    private int number2;
 
-    public void setNumber1(int value) {
-        number1 = value;
+    public void setNumber1(int number1) {
+        this.number1 = number1;
     }
 
-    public void setOperation(char value) {
-        operation = value;
+    public void setOperation(char operation) {
+        this.operation = operation;
     }
 
-    public void setNumber2(int value) {
-        number2 = value;
+    public void setNumber2(int number2) {
+        this.number2 = number2;
     }
 
-    public void run() {
+    public void calculate() {
         int result = 0;
-        switch(operation)
-        {
+        switch (operation) {
             case '+':
                 result = number1 + number2;
-            break;
+                break;
             case '-':
                 result = number1 - number2;
-            break;
+                break;
             case '*':
                 result = number1 * number2;
-            break;
+                break;
             case '/':
                 result = number1 / number2;
-            break;
+                break;
             case '^': {
                 result = 1;
                 for (int i = 0; i < number2; i++) {
                     result *= number1;
                 }
             }
-            break;
+                break;
             case '%':
                 result = number1 % number2;
-            break;
+                break;
             default:
                 operation = ' ';
         }
-        if(operation!=' ') {
-                System.out.println("Результат операции " + number1 + " " + operation + " " + number2 + " = " + result);
+        if (operation != ' ') {
+            System.out.println("Результат операции " + number1 + " " + operation + " " + number2 + " = " + result);
         }
     }
 
