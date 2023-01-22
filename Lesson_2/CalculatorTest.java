@@ -5,7 +5,7 @@ public class CalculatorTest {
         Scanner console = new Scanner(System.in);
 
         Calculator calculator = new Calculator();
-        String nextCalculate;
+        String answer;
         do {
             System.out.print("Введите первое число: ");
             calculator.setNumber1(console.nextInt());
@@ -20,8 +20,8 @@ public class CalculatorTest {
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-                nextCalculate = console.next();
-            } while (!nextCalculate.equals("yes") && !nextCalculate.equals("no"));
-        } while (nextCalculate.equals("yes"));
+                answer = console.next();
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        } while (answer.equals("yes"));
     }
 }

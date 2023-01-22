@@ -30,22 +30,20 @@ public class Calculator {
             case '/':
                 result = number1 / number2;
                 break;
-            case '^': {
+            case '^':
                 result = 1;
                 for (int i = 0; i < number2; i++) {
                     result *= number1;
                 }
-            }
                 break;
             case '%':
                 result = number1 % number2;
                 break;
             default:
-                operation = ' ';
+                System.out.println("Операция не поддерживается!");
+                return;
         }
-        if (operation != ' ') {
-            System.out.println("Результат операции " + number1 + " " + operation + " " + number2 + " = " + result);
-        }
+        System.out.println("Результат операции " + number1 + " " + operation + " " + number2 + " = " + result);
     }
 
 }
