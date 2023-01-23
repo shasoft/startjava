@@ -1,17 +1,17 @@
 public class Jaeger {
-    private String modelName = "Bracer Phonix";
-    private String mark = "Mark-3";
-    private String origin = "USA";
-    private int strength = 8;
+    private String modelName;
+    private String mark;
+    private String origin;
+    private int strength;
+
+    public Jaeger() {
+    }
 
     public Jaeger(String modelName, String mark, String origin, int strength) {
         this.modelName = modelName;
         this.mark = mark;
         this.origin = origin;
         this.strength = strength;
-    }
-
-    public Jaeger() {
     }
 
     public void setModelName(String modelName) {

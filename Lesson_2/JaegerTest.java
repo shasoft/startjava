@@ -3,7 +3,8 @@ public class JaegerTest {
         Jaeger jaeger1 = new Jaeger("Gipsy Danger", "Mark-3", "USA", 8);
         if (jaeger1.drift())
             jaeger1.move();
-        System.out.println("Робот 1: " + jaeger1.toString());
+        System.out.println("Робот 1: " + jaeger1);
+
         Jaeger jaeger2 = new Jaeger();
         jaeger2.setModelName("Striker Eureka");
         jaeger2.setMark("Mark-5");
@@ -11,6 +12,6 @@ public class JaegerTest {
         jaeger2.setStrength(10);
         System.out.println(jaeger2.scanKiju());
         jaeger2.useVortexCannon();
-        System.out.println("Робот 2: " + jaeger2.toString());
+        System.out.println("Робот 2: " + jaeger2);
     }
 }
