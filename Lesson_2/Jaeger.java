@@ -11,6 +11,9 @@ public class Jaeger {
         this.strength = strength;
     }
 
+    public Jaeger() {
+    }
+
     public void setModelName(String modelName) {
         this.modelName = modelName;
     }
@@ -40,7 +43,7 @@ public class Jaeger {
     }
 
     public int getStrength() {
-        return this.strength;
+        return strength;
     }
 
     public boolean drift() {
@@ -59,12 +62,7 @@ public class Jaeger {
         System.out.println("activated");
     }
 
-    public void print(String title) {
-        System.out.println(
-                title + "\n"
-                        + "\tmodelname: " + this.getModelName() + "\n"
-                        + "\t   origin: " + this.getOrigin() + "\n"
-                        + "\t     mark: " + this.getMark() + "\n"
-                        + "\t strength: " + this.getStrength());
+    public String toString() {
+        return "modelName: " + modelName + ", mark: " + mark + ", origin: " + origin + ", strength: " + strength;
     }
 }
