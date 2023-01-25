@@ -3,9 +3,7 @@ import java.util.Scanner;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-
         GuessNumber game = new GuessNumber(createPlayer(console, 1), createPlayer(console, 2));
-
         String answer;
         do {
             game.start();
@@ -14,7 +12,6 @@ public class GuessNumberTest {
                 answer = console.next();
             } while (!answer.equals("yes") && !answer.equals("no"));
         } while (answer.equals("yes"));
-
     }
 
     public static Player createPlayer(Scanner console, int playerNumber) {
