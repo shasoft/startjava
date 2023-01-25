@@ -8,23 +8,7 @@ public class GuessNumberTest {
 
         String answer;
         do {
-            game.thinkNumber();
-            while (true) {
-                Player activePlayer = game.activePlayer();
-                System.out.print("Игрок " + activePlayer + " укажите число: ");
-                int number = console.nextInt();
-                activePlayer.setNumber(number);
-                if (game.hasEqual(number)) {
-                    System.out.println("Игрок " + activePlayer + " одержал победу");
-                    break;
-                } else {
-                    if (game.less(number)) {
-                        System.out.println("Число " + number + " меньше того, что загадал компьютер");
-                    } else {
-                        System.out.println("Число " + number + " больше того, что загадал компьютер");
-                    }
-                }
-            }
+            game.start();
             do {
                 System.out.print("Хотите продолжить игру? [yes/no]: ");
                 answer = console.next();

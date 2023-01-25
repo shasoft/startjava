@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class GuessNumber {
     private int secretNumber;
     private int playerIndex;
@@ -10,27 +12,32 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    public Player activePlayer() {
-        Player player;
-        if (playerIndex == 0) {
-            player = player1;
-            playerIndex = 1;
-        } else {
-            player = player2;
-            playerIndex = 0;
-        }
-        return player;
-    }
-
-    public void thinkNumber() {
+    public void start() {
+        Scanner console = new Scanner(System.in);
         secretNumber = (int) (Math.random() * 100.0f);
+        while (true) {
+            Player activePlayer;
+            if (playerIndex == 0) {
+                activePlayer = player1;
+                playerIndex = 1;
+            } else {
+                activePlayer = player2;
+                playerIndex = 0;
+            }
+            System.out.print("Игрок " + activePlayer + " укажите число: ");
+            int number = console.nextInt();
+            activePlayer.setNumber(number);
+            if (number == secretNumber) {
+                System.out.println("Игрок " + activePlayer + " одержал победу");
+                break;
+            } else {
+                if (number < secretNumber) {
+                    System.out.println("Число " + number + " меньше того, что загадал компьютер");
+                } else {
+                    System.out.println("Число " + number + " больше того, что загадал компьютер");
+                }
+            }
+        }
     }
 
-    public boolean hasEqual(int number) {
-        return number == secretNumber;
-    }
-
-    public boolean less(int number) {
-        return number < secretNumber;
-    }
 }
