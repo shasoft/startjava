@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.guess;
+
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -10,8 +12,8 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    public void start() {
-        Scanner console = new Scanner(System.in);
+    public void start(Scanner console) {
+        // Scanner console = new Scanner(System.in);
         secretNumber = (int) (Math.random() * 100.0f) + 1;
         Player activePlayer = player1;
         while (true) {

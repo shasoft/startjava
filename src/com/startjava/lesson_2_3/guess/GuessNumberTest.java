@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.guess;
+
 import java.util.Scanner;
 
 public class GuessNumberTest {
@@ -6,7 +8,7 @@ public class GuessNumberTest {
         GuessNumber game = new GuessNumber(createPlayer(console, 1), createPlayer(console, 2));
         String answer;
         do {
-            game.start();
+            game.start(console);
             do {
                 System.out.print("Хотите продолжить игру? [yes/no]: ");
                 answer = console.next();

@@ -1,5 +1,7 @@
 # Исключить файлы .class
 *.class
+# Исключить папку out
+out/
 # Исключить другие файлы
 run.bat
-gitpush.bat
+gitinfo.bat
