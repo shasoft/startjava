@@ -12,10 +12,9 @@ public class GuessNumber {
 
     public void start() {
         Scanner console = new Scanner(System.in);
-        secretNumber = (int) (Math.random() * 101.0f);
-        Player activePlayer = player2;
+        secretNumber = (int) (Math.random() * 100.0f) + 1;
+        Player activePlayer = player1;
         while (true) {
-            activePlayer = activePlayer.equals(player1) ? player2 : player1;
             System.out.print("Игрок " + activePlayer + " введите число: ");
             int number = console.nextInt();
             activePlayer.setNumber(number);
@@ -28,6 +27,7 @@ public class GuessNumber {
             } else {
                 System.out.println("Число " + number + " больше того, что загадал компьютер");
             }
+            activePlayer = activePlayer == player1 ? player2 : player1;
         }
     }
 
