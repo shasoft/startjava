@@ -5,43 +5,48 @@ import java.util.Arrays;
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("\n1. Реверс значений массива");
-        int[] arrInts = { 1, 2, 3, 4, 5, 6, 7 };
-        printArrayInt("Начальное значение", arrInts);
-        for (int i = 0; i < arrInts.length / 2; i++) {
-            int swapInt = arrInts[i];
-            arrInts[i] = arrInts[arrInts.length - 1 - i];
-            arrInts[arrInts.length - 1 - i] = swapInt;
+        int[] intArr = {1, 2, 3, 4, 5, 6, 7};
+        printArrayInt("Начальное значение", intArr);
+        for (int i = 0; i < intArr.length / 2; i++) {
+            int temp = intArr[i];
+            intArr[i] = intArr[intArr.length - 1 - i];
+            intArr[intArr.length - 1 - i] = temp;
         }
-        printArrayInt("После перестановки", arrInts);
+        printArrayInt("После перестановки", intArr);
 
         System.out.println("\n2. Вывод произведения элементов массива");
         System.out.print("\t");
-        arrInts = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        int productNumbers = 1;
-        for (int i = 0; i < arrInts.length; i++) {
-            boolean hasProduct = arrInts[i] > 0 && arrInts[i] < 9;
-            String sign = hasProduct ? (" " + (arrInts[i] < 8 ? "*" : "=") + " ") : "";
-            productNumbers *= hasProduct ? arrInts[i] : 1;
-            System.out.print(hasProduct ? (arrInts[i] + sign) : "");
+        intArr = new int[10];
+        for (int i = 0; i < intArr.length; i++)
+            intArr[i] = i;
+        int digits = 1;
+        int countOut = 0;
+        for (int i = 0; i < intArr.length; i++) {
+            boolean isMul = intArr[i] > 0 && intArr[i] < 9;
+            digits *= isMul ? intArr[i] : 1;
+            countOut += isMul ? 1 : 0;
+            System.out.print(isMul ? (intArr[i] + (isMul ? (" " + (countOut < 8 ? "*" : "=") + " ") : "")) : "");
         }
-        System.out.println(productNumbers);
+        System.out.println(digits);
+        System.out.println("\tЭлемент массив 0 = " + intArr[0]);
+        System.out.println("\tЭлемент массив 9 = " + intArr[9]);
 
         System.out.println("\n3. Удаление элементов массива");
-        float[] arrFloats = new float[15];
-        for (int i = 0; i < arrFloats.length; i++) {
-            arrFloats[i] = (float) Math.random();
+        float[] floatArr = new float[15];
+        for (int i = 0; i < floatArr.length; i++) {
+            floatArr[i] = (float) Math.random();
         }
-        printArrayFloat("Исходные массив", arrFloats, 8);
-        float middleFloat = arrFloats[arrFloats.length / 2];
-        System.out.printf("\tСреднее значение %.3f\n", middleFloat);
+        printArrayFloat("Исходный массив", floatArr, 8);
+        float middleNumber = floatArr[floatArr.length / 2];
+        System.out.printf("\tСреднее значение %.3f\n", middleNumber);
         int countZero = 0;
-        for (int i = 0; i < arrFloats.length; i++) {
-            if (middleFloat < arrFloats[i]) {
-                arrFloats[i] = 0;
+        for (int i = 0; i < floatArr.length; i++) {
+            if (middleNumber < floatArr[i]) {
+                floatArr[i] = 0;
                 countZero++;
             }
         }
-        printArrayFloat("Измененный массив", arrFloats, 8);
+        printArrayFloat("Измененный массив", floatArr, 8);
         System.out.println("\tколичество обнуленных ячеек " + countZero);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
@@ -58,35 +63,35 @@ public class ArrayTheme {
         }
 
         System.out.println("\n5. Генерация уникальных чисел");
-        int[] arrRandomInts = new int[41];
-        for (int i = 0; i < arrRandomInts.length; i++) {
-            arrRandomInts[i] = 60 + i;
+        int[] intArrRandom = new int[41];
+        for (int i = 0; i < intArrRandom.length; i++) {
+            intArrRandom[i] = 60 + i;
         }
-        arrInts = new int[30];
-        int countRandom = arrRandomInts.length;
-        for (int i = 0; i < arrInts.length; i++) {
+        intArr = new int[30];
+        int countRandom = intArrRandom.length;
+        for (int i = 0; i < intArr.length; i++) {
             int indexRandom = (int) (Math.random() * (float) countRandom);
-            arrInts[i] = arrRandomInts[indexRandom];
-            arrRandomInts[indexRandom] = arrRandomInts[countRandom - 1];
+            intArr[i] = intArrRandom[indexRandom];
+            intArrRandom[indexRandom] = intArrRandom[countRandom - 1];
             countRandom--;
         }
-        for (int i = 0; i < arrInts.length - 1; i++) {
-            for (int j = i + 1; j < arrInts.length; j++) {
-                if (arrInts[i] > arrInts[j]) {
-                    int swap = arrInts[i];
-                    arrInts[i] = arrInts[j];
-                    arrInts[j] = swap;
+        for (int i = 0; i < intArr.length - 1; i++) {
+            for (int j = i + 1; j < intArr.length; j++) {
+                if (intArr[i] > intArr[j]) {
+                    int temp = intArr[i];
+                    intArr[i] = intArr[j];
+                    intArr[j] = temp;
                 }
 
             }
         }
-        for (int i = 0; i < arrInts.length; i++) {
+        for (int i = 0; i < intArr.length; i++) {
             if (i % 10 == 0) {
                 if (i != 0)
                     System.out.println();
                 System.out.print("\t");
             }
-            System.out.printf("%4d", arrInts[i]);
+            System.out.printf("%4d", intArr[i]);
         }
         System.out.println();
 
