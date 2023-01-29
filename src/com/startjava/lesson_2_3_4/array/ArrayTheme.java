@@ -96,7 +96,7 @@ public class ArrayTheme {
         System.out.println();
 
         System.out.println("\n6. Сдвиг элементов массива");
-        String[] strings = { "    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", "" };
+        String[] strings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
         System.out.println("\tИсходный массив: " + Arrays.toString(strings));
         int countNotBlank = 0;
         for (String str : strings) {
