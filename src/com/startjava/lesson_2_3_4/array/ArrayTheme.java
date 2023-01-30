@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("\n1. Реверс значений массива");
-        int[] intArr = { 1, 2, 3, 4, 5, 6, 7 };
+        int[] intArr = {1, 2, 3, 4, 5, 6, 7};
         printArrayInt("Начальное значение", intArr);
         int len = intArr.length;
         for (int i = 0; i < len / 2; i++) {
@@ -99,7 +99,7 @@ public class ArrayTheme {
         System.out.println();
 
         System.out.println("\n6. Сдвиг элементов массива");
-        String[] strings = { "    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", "" };
+        String[] strings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
         System.out.println("\tИсходный массив: " + Arrays.toString(strings));
         int countNotBlank = 0;
         for (String str : strings) {
