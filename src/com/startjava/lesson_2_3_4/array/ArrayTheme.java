@@ -7,11 +7,12 @@ public class ArrayTheme {
         System.out.println("\n1. Реверс значений массива");
         int[] intArr = {1, 2, 3, 4, 5, 6, 7};
         printArrayInt("Начальное значение", intArr);
-        int len = intArr.length;
-        for (int i = 0; i < len / 2; i++) {
+        int len = intArr.length - 1;
+        for (int i = 0; i < len; i++) {
             int temp = intArr[i];
-            intArr[i] = intArr[len - 1 - i];
-            intArr[len - 1 - i] = temp;
+            intArr[i] = intArr[len];
+            intArr[len] = temp;
+            len--;
         }
         printArrayInt("После перестановки", intArr);
 
@@ -24,7 +25,7 @@ public class ArrayTheme {
         int productDigits = 1;
         for (int i = 1; i < len - 1; i++) {
             productDigits *= intArr[i];
-            System.out.print(intArr[i] + " " + (i < 8 ? "*" : "=") + " ");
+            System.out.print(intArr[i] + " " + (i < len - 1 ? "*" : "=") + " ");
         }
         System.out.println(productDigits);
         System.out.println("\tЭлемент массив 0 = " + intArr[0]);
@@ -50,15 +51,15 @@ public class ArrayTheme {
         System.out.println("\tколичество обнуленных ячеек " + countZero);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
-        char[] englishLetters = new char['Z' - 'A' + 1];
+        char[] englishAlphabet = new char['Z' - 'A' + 1];
         for (char ch = 'A'; ch <= 'Z'; ch++) {
-            englishLetters[ch - 'A'] = ch;
+            englishAlphabet[ch - 'A'] = ch;
         }
-        len = englishLetters.length;
+        len = englishAlphabet.length;
         for (int row = 0; row < len; row++) {
             System.out.print("\t");
             for (int col = 0; col <= row; col++) {
-                System.out.print(englishLetters[len - 1 - col]);
+                System.out.print(englishAlphabet[len - 1 - col]);
             }
             System.out.println();
         }
@@ -66,20 +67,23 @@ public class ArrayTheme {
         System.out.println("\n5. Генерация уникальных чисел");
         int[] uniqueNumbers = new int[30];
         int countNumbers = 0;
-        while (countNumbers < uniqueNumbers.length) {
-            uniqueNumbers[countNumbers] = (int) (Math.random() * 40 + 60);
+        len = uniqueNumbers.length;
+        while (countNumbers < len) {
+            int intNumber = (int) (Math.random() * 40 + 60);
             boolean hasAppend = true;
-            for (int i = 0; i < countNumbers - 1; i++) {
-                if (uniqueNumbers[countNumbers] == uniqueNumbers[i]) {
+            for (int i = 0; i < countNumbers; i++) {
+                if (intNumber == uniqueNumbers[i]) {
                     hasAppend = false;
                     break;
                 }
             }
-            if (hasAppend)
+            if (hasAppend) {
+                uniqueNumbers[countNumbers] = intNumber;
                 countNumbers++;
+            }
         }
-        for (int i = 0; i < uniqueNumbers.length - 1; i++) {
-            for (int j = i + 1; j < uniqueNumbers.length; j++) {
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = i + 1; j < len; j++) {
                 if (uniqueNumbers[i] > uniqueNumbers[j]) {
                     int temp = uniqueNumbers[i];
                     uniqueNumbers[i] = uniqueNumbers[j];
@@ -88,7 +92,7 @@ public class ArrayTheme {
 
             }
         }
-        for (int i = 0; i < uniqueNumbers.length; i++) {
+        for (int i = 0; i < len; i++) {
             if (i % 10 == 0) {
                 if (i != 0)
                     System.out.println();
@@ -99,30 +103,30 @@ public class ArrayTheme {
         System.out.println();
 
         System.out.println("\n6. Сдвиг элементов массива");
-        String[] strings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
-        System.out.println("\tИсходный массив: " + Arrays.toString(strings));
-        int countNotBlank = 0;
-        for (String str : strings) {
+        String[] srcArray = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        System.out.println("\tИсходный массив: " + Arrays.toString(srcArray));
+        len = 0;
+        for (String str : srcArray) {
             if (!str.isBlank()) {
-                countNotBlank++;
+                len++;
             }
         }
-        String[] stringsNotBlank = new String[countNotBlank];
+        String[] destArray = new String[len];
         int destPos = 0;
-        for (int srcPos = 0; srcPos < strings.length; srcPos++) {
-            if (!strings[srcPos].isBlank()) {
-                int copyLength = 1;
-                for (int i = srcPos + 1; i < strings.length; i++) {
-                    if (strings[i].isBlank())
-                        break;
-                    copyLength++;
+        int copyLength = 0;
+        len = srcArray.length;
+        for (int i = 0; i < len; i++) {
+            if (srcArray[i].isBlank()) {
+                if (copyLength > 0) {
+                    System.arraycopy(srcArray, i - copyLength, destArray, destPos, copyLength);
+                    destPos += copyLength;
+                    copyLength = 0;
                 }
-                System.arraycopy(strings, srcPos, stringsNotBlank, destPos, copyLength);
-                destPos += copyLength;
-                srcPos += (copyLength - 1);
+            } else {
+                copyLength++;
             }
         }
-        System.out.println("\t      Результат: " + Arrays.toString(stringsNotBlank));
+        System.out.println("\t      Результат: " + Arrays.toString(destArray));
     }
 
     public static void printArrayInt(String title, int[] values) {
