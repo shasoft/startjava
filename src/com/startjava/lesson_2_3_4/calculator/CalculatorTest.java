@@ -9,13 +9,11 @@ public class CalculatorTest {
         do {
             try {
                 if (answer.equals("yes")) {
-                    System.out.print("Введите математическое выражение: ");
+                    System.out.println("Введите мат. выражение в следующем формате");
+                    System.out.print("<целое число><пробел><операция><целое число>: ");
                     double result = Calculator.calculate(console.nextLine());
                     System.out.print("Результат операции = ");
-                    if (result % 1.0 != 0.0)
-                        System.out.printf("%f", result);
-                    else
-                        System.out.printf("%.0f", result);
+                    System.out.printf(result % 1.0 != 0.0 ? "%f" : "%.0f", result);
                     System.out.println();
                 }
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
