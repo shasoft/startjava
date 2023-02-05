@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("\n1. Реверс значений массива");
-        int[] intArr = {1, 2, 3, 4, 5, 6, 7};
+        int[] intArr = { 1, 2, 3, 4, 5, 6, 7 };
         printArrayInt("Начальное значение", intArr);
         int len = intArr.length - 1;
         for (int i = 0; i < len; i++) {
@@ -69,16 +69,16 @@ public class ArrayTheme {
         int countNumbers = 0;
         len = uniqueNumbers.length;
         while (countNumbers < len) {
-            int intNumber = (int) (Math.random() * 40 + 60);
-            boolean hasAppend = true;
+            int randomNumber = (int) (Math.random() * 40 + 60);
+            boolean unique = true;
             for (int i = 0; i < countNumbers; i++) {
-                if (intNumber == uniqueNumbers[i]) {
-                    hasAppend = false;
+                if (randomNumber == uniqueNumbers[i]) {
+                    unique = false;
                     break;
                 }
             }
-            if (hasAppend) {
-                uniqueNumbers[countNumbers] = intNumber;
+            if (unique) {
+                uniqueNumbers[countNumbers] = randomNumber;
                 countNumbers++;
             }
         }
@@ -103,7 +103,7 @@ public class ArrayTheme {
         System.out.println();
 
         System.out.println("\n6. Сдвиг элементов массива");
-        String[] srcArray = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        String[] srcArray = { "    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", "" };
         System.out.println("\tИсходный массив: " + Arrays.toString(srcArray));
         len = 0;
         for (String str : srcArray) {
@@ -129,18 +129,18 @@ public class ArrayTheme {
         System.out.println("\t      Результат: " + Arrays.toString(destArray));
     }
 
-    public static void printArrayInt(String title, int[] values) {
+    public static void printArrayInt(String title, int[] numbers) {
         System.out.print("\t" + title + ":");
-        for (int val : values) {
+        for (int val : numbers) {
             System.out.print(" " + val);
         }
         System.out.println();
     }
 
-    public static void printArrayFloat(String title, float[] values, int maxColumns) {
+    public static void printArrayFloat(String title, float[] numbers, int maxColumns) {
         System.out.print("\t" + title);
         int column = 0;
-        for (float val : values) {
+        for (float val : numbers) {
             if (column == maxColumns) {
                 column = 0;
             }
