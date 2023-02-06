@@ -3,20 +3,20 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Arrays;
 
 public class Player {
-    private int victory;
+    private int countWins;
     private String name;
-    private int countNumbers;
+    private int countAttempts;
     private int[] numbers;
 
     public Player(String name, int maxNumbers) {
         this.name = name;
         numbers = new int[maxNumbers];
-        reset();
+        countAttempts = 0;
     }
 
     public void reset() {
-        Arrays.fill(numbers, 0, countNumbers, 0);
-        countNumbers = 0;
+        Arrays.fill(numbers, 0, countAttempts, 0);
+        countAttempts = 0;
     }
 
     public boolean addNumber(int number) {
@@ -24,28 +24,28 @@ public class Player {
             System.out.println("Число должно быть в интервале (0,100]");
             return false;
         }
-        numbers[countNumbers++] = number;
+        numbers[countAttempts++] = number;
         return true;
     }
 
-    public void clearVictory() {
-        victory = 0;
+    public void clearCountWins() {
+        countWins = 0;
     }
 
-    public void addVictory() {
-        victory++;
+    public void upCountWins() {
+        countWins++;
     }
 
-    public int getVictory() {
-        return victory;
+    public int getCountWins() {
+        return countWins;
     }
 
     public int getAttempt() {
-        return countNumbers;
+        return countAttempts;
     }
 
     public boolean hasAttempts() {
-        return countNumbers < numbers.length;
+        return countAttempts < numbers.length;
     }
 
     public int getAttempts() {
@@ -53,7 +53,7 @@ public class Player {
     }
 
     public int[] getNumbers() {
-        return Arrays.copyOf(numbers, countNumbers);
+        return Arrays.copyOf(numbers, countAttempts);
     }
 
     public String toString() {

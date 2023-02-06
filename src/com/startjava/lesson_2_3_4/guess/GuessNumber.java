@@ -1,7 +1,6 @@
 package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class GuessNumber {
     private int secretNumber;
@@ -11,32 +10,36 @@ public class GuessNumber {
         this.players = players;
     }
 
-    public void start(int countVictorys) {
-        for (Player player : this.players) {
-            player.clearVictory();
-        }
+    public void start(int countRounds) {
+        for (Player player : players)
+            player.clearCountWins();
 
         mixPlayers();
 
-        for (int i = 0; i < countVictorys; i++) {
+        while (countRounds > 0) {
             playRound();
+            countRounds--;
         }
 
         System.out.println("Количество побед каждого игрока:");
         for (Player player : players) {
-            System.out.println("\t" + player.getVictory() + " " + player);
+            System.out.println("\t" + player.getCountWins() + " " + player);
         }
     }
 
     private void mixPlayers() {
-        Player[] players = Arrays.copyOf(this.players, this.players.length);
-        int count = players.length;
-        do {
-            int numPlayer = (int) (Math.random() * (double) count);
-            count--;
-            this.players[count] = players[numPlayer];
-            players[numPlayer] = players[count];
-        } while (count > 0);
+        int length = players.length;
+        int count = 2 * length;
+        while (count > 0) {
+            int numPlayer1 = (int) (Math.random() * (double) length);
+            int numPlayer2 = (int) (Math.random() * (double) length);
+            if (numPlayer1 != numPlayer2) {
+                Player player = players[numPlayer1];
+                players[numPlayer1] = players[numPlayer2];
+                players[numPlayer2] = player;
+                count--;
+            }
+        }
     }
 
     private void playRound() {
@@ -51,12 +54,10 @@ public class GuessNumber {
             Player activePlayer = players[numPlayer];
             if (activePlayer.hasAttempts()) {
                 int number = inputNumber(activePlayer);
-                if (checkVictory(activePlayer, number)) {
-                    activePlayer.addVictory();
+                if (isGuessed(activePlayer, number)) {
+                    activePlayer.upCountWins();
                     break;
                 }
-                System.out.println("\tЧисло " + number + " " + (number < secretNumber ? "меньше" : "больше")
-                        + " того, что загадал компьютер");
             } else {
                 System.out.println("У " + activePlayer + " закончились попытки");
                 countActivePlayers--;
@@ -79,14 +80,15 @@ public class GuessNumber {
         return number;
     }
 
-    private boolean checkVictory(Player player, int number) {
-        boolean hasVictory = false;
+    private boolean isGuessed(Player player, int number) {
         if (number == secretNumber) {
             System.out.println("Игрок " + player + " угадал число " + secretNumber + " с "
                     + player.getAttempt() + " попытки");
-            hasVictory = true;
+            return true;
         }
-        return hasVictory;
+        System.out.println("\tЧисло " + number + " " + (number < secretNumber ? "меньше" : "больше")
+                + " того, что загадал компьютер");
+        return false;
     }
 
     private void printNumbers() {
