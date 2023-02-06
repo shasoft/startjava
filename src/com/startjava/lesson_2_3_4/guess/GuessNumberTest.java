@@ -5,27 +5,28 @@ import java.util.Scanner;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        GuessNumber game = new GuessNumber(createPlayers(console, 2));
+        Player[] players = createPlayers(console, 3);
+        GuessNumber game = new GuessNumber(players);
         String answer = "yes";
         do {
             if (answer.equals("yes")) {
-                game.start();
+                game.start(3);
             }
             System.out.print("Хотите продолжить игру? [yes/no]: ");
             answer = console.nextLine();
         } while (!answer.equals("no"));
     }
 
-    public static Player createPlayer(Scanner console, int playerNumber) {
-        System.out.print("Введите имя игрока " + playerNumber + ": ");
-        return new Player(console.nextLine(), 10);
+    private static Player[] createPlayers(Scanner console, int countPlayers) {
+        Player[] players = new Player[countPlayers];
+        for (int i = 0; i < countPlayers; i++) {
+            players[i] = createPlayer(console, i + 1);
+        }
+        return players;
     }
 
-    public static Player[] createPlayers(Scanner console, int countPlayers) {
-        Player[] ret = new Player[countPlayers];
-        for (int i = 0; i < countPlayers; i++) {
-            ret[i] = createPlayer(console, i + 1);
-        }
-        return ret;
+    private static Player createPlayer(Scanner console, int playerNumber) {
+        System.out.print("Введите имя игрока " + playerNumber + ": ");
+        return new Player(console.nextLine(), 1);
     }
 }

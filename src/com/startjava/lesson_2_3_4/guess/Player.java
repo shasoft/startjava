@@ -3,6 +3,7 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Arrays;
 
 public class Player {
+    private int victory;
     private String name;
     private int countNumbers;
     private int[] numbers;
@@ -10,7 +11,7 @@ public class Player {
     public Player(String name, int maxNumbers) {
         this.name = name;
         numbers = new int[maxNumbers];
-        countNumbers = 0;
+        reset();
     }
 
     public void reset() {
@@ -18,11 +19,28 @@ public class Player {
         countNumbers = 0;
     }
 
-    public void addNumber(int number) {
+    public boolean addNumber(int number) {
+        if (number < 1 || number > 100) {
+            System.out.println("Число должно быть в интервале (0,100]");
+            return false;
+        }
         numbers[countNumbers++] = number;
+        return true;
     }
 
-    public int attempt() {
+    public void clearVictory() {
+        victory = 0;
+    }
+
+    public void addVictory() {
+        victory++;
+    }
+
+    public int getVictory() {
+        return victory;
+    }
+
+    public int getAttempt() {
         return countNumbers;
     }
 
@@ -30,7 +48,7 @@ public class Player {
         return countNumbers < numbers.length;
     }
 
-    public int maxAttempts() {
+    public int getAttempts() {
         return numbers.length;
     }
 
