@@ -11,7 +11,26 @@ public class Player {
     public Player(String name, int maxNumbers) {
         this.name = name;
         numbers = new int[maxNumbers];
-        countAttempts = 0;
+    }
+
+    public int getCountWins() {
+        return countWins;
+    }
+
+    public void upCountWins() {
+        countWins++;
+    }
+
+    public void clearCountWins() {
+        countWins = 0;
+    }
+
+    public int getAttempt() {
+        return countAttempts;
+    }
+
+    public int getAttempts() {
+        return numbers.length;
     }
 
     public void reset() {
@@ -28,28 +47,8 @@ public class Player {
         return true;
     }
 
-    public void clearCountWins() {
-        countWins = 0;
-    }
-
-    public void upCountWins() {
-        countWins++;
-    }
-
-    public int getCountWins() {
-        return countWins;
-    }
-
-    public int getAttempt() {
-        return countAttempts;
-    }
-
     public boolean hasAttempts() {
         return countAttempts < numbers.length;
-    }
-
-    public int getAttempts() {
-        return numbers.length;
     }
 
     public int[] getNumbers() {

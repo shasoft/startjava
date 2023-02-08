@@ -21,30 +21,24 @@ public class GuessNumber {
             countRounds--;
         }
 
-        System.out.println("Количество побед каждого игрока:");
-        for (Player player : players) {
-            System.out.println("\t" + player.getCountWins() + " " + player);
-        }
+        printPlayScores();
     }
 
     private void mixPlayers() {
         int length = players.length;
-        int count = 2 * length;
-        while (count > 0) {
-            int numPlayer1 = (int) (Math.random() * (double) length);
-            int numPlayer2 = (int) (Math.random() * (double) length);
-            if (numPlayer1 != numPlayer2) {
-                Player player = players[numPlayer1];
-                players[numPlayer1] = players[numPlayer2];
-                players[numPlayer2] = player;
-                count--;
+        for (int i = 0; i < length; i++) {
+            int index = (int) (Math.random() * (double) length);
+            if (i != index) {
+                Player player = players[index];
+                players[index] = players[i];
+                players[i] = player;
             }
         }
     }
 
     private void playRound() {
         secretNumber = (int) (Math.random() * 100.0f) + 1;
-        System.out.println("У каждого игрока по " + players[0].getAttempts() + " попыток");
+        System.out.println("У каждого игрока по " + players[0].getAttempts() + " попыток " + secretNumber);
         for (Player player : players) {
             player.reset();
         }
@@ -99,6 +93,31 @@ public class GuessNumber {
                 System.out.printf("%4d", number);
             }
             System.out.println();
+        }
+    }
+
+    private void printPlayScores() {
+        int len = players.length;
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (players[i].getCountWins() < players[j].getCountWins()) {
+                    Player player = players[i];
+                    players[i] = players[j];
+                    players[j] = player;
+                }
+            }
+        }
+        if (players[0].getCountWins() == players[len - 1].getCountWins())
+            System.out.println("Ничья");
+        else {
+            if (players[0].getCountWins() == players[1].getCountWins()) {
+                System.out.println("Победу одержали: ");
+                for (int i = 0; players[i].getCountWins() == players[0].getCountWins(); i++) {
+                    System.out.println("\t" + players[i] + " (побед=" + players[i].getCountWins() + ")");
+                }
+            } else {
+                System.out.println("Победу одержал " + players[0] + " (побед=" + players[0].getCountWins() + ")");
+            }
         }
     }
 }

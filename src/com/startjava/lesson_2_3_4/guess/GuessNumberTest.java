@@ -3,14 +3,18 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumberTest {
+    private static final int COUNT_PLAYRES = 3;
+    private static final int COUNT_ATTEMPTS = 10;
+    private static final int COUNT_ROUNDS = 3;
+
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        Player[] players = createPlayers(console, 3);
+        Player[] players = createPlayers(console, COUNT_PLAYRES);
         GuessNumber game = new GuessNumber(players);
         String answer = "yes";
         do {
             if (answer.equals("yes")) {
-                game.start(3);
+                game.start(COUNT_ROUNDS);
             }
             System.out.print("Хотите продолжить игру? [yes/no]: ");
             answer = console.nextLine();
@@ -27,6 +31,6 @@ public class GuessNumberTest {
 
     private static Player createPlayer(Scanner console, int playerNumber) {
         System.out.print("Введите имя игрока " + playerNumber + ": ");
-        return new Player(console.nextLine(), 10);
+        return new Player(console.nextLine(), COUNT_ATTEMPTS);
     }
 }
